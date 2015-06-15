@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 /**
  * Created by Mobile App Develop on 10-6-15.
@@ -44,16 +43,13 @@ public class MyProfileInformation extends ActionBarActivity {
         edtWeight = (EditText) findViewById(R.id.edtWeight);
         edtPhone = (EditText) findViewById(R.id.edtPhoneNo);
 
-        dbHelper = new DBHelper(MyProfileInformation.this);
-
 
     }
 
     public void btnSubmit(View v) {
         getValue();
         dbHelper.insertMyProfile(name, birthDay, gender, bloodGroup, height, weight, phoneNo);
-        Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(MyProfileInformation.this, MyProfile.class);
+        Intent intent = new Intent(MyProfileInformation.this, MainActivity.class);
         startActivity(intent);
 
 
